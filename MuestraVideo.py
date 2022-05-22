@@ -2,7 +2,7 @@ import cv2
 import time
 
 # Nombre del video y caracteristicas
-archivo = "walking.mp4"
+archivo = "bobesponja.mp4"
 ancho = 722
 largo = 406
 
