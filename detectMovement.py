@@ -7,6 +7,7 @@ def detectMovement():
     video = cv2.VideoCapture("walking.mp4")
 
     f = 0
+    team = "Equipo 1"
     ancho = 722 
     largo = 406
 
@@ -26,6 +27,7 @@ def detectMovement():
             contours, _ = cv2.findContours(thresh_bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
             cv2.putText(first_image,str(f),(ancho-100,largo-50),cv2.FONT_HERSHEY_PLAIN,2,(255,255,255))
+            cv2.putText(first_image,team,(ancho-160,largo-20),cv2.FONT_HERSHEY_PLAIN,2,(255,255,255))
 
             for contour in contours:
                 x, y, w, h = cv2.boundingRect(contour)
@@ -37,6 +39,7 @@ def detectMovement():
             cv2.imshow("Detector activated...", first_image)
             if cv2.waitKey(100) == ord('q'): # Termina cuando se apriete q
                 break
+            f+=1
         else:
             video.release()
             break
